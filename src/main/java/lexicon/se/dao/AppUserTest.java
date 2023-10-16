@@ -10,19 +10,20 @@ public class AppUserTest {
         return new AppUser("user", "password", AppRole.ROLE_APP_USER);
 
         void setUsername () {
+            @Test
+            void setUsername() {
+                AppUser user = getExample();
+                NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
+                    user.setUsername(null);
+                });
+                IllegalArgumentException thrown2 = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    user.setUsername("");
+                });
+
+                assertEquals("username cannot be null!", thrown.getMessage());
+                assertEquals("username cannot be empty!", thrown2.getMessage());
 
 
-            AppUser user = getExample();
-            NullPointerException thrown1 = Assertions.assertThrows(NullPointerException.class, () ->);
-            user.setUsername(null);
-        }
-        IllegalArgumentException thrown2 = Asstions.assertThrows(IllegalArgumentException.class, () ->);
-        user.setUsername("");
-    }
-
-    assertEquals("username can  not  be null!",thrown.getMessage);
-
-    assertEquals("username can not be null!",thrown2.getMessage());
 
     void setPassword() {
         AppUser user = getExample();
@@ -34,6 +35,11 @@ public class AppUserTest {
       user.setPassword();
 
     assertEquals("password can not be null!",thrown.getMessage());
+
+
+
+
+
 
 
      void setAppRole(){
