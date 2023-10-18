@@ -24,15 +24,16 @@ public class TodoItemTaskTest {
 
 
       void setTodoItem() {
-          NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () ->);
+          NullPointerException thrown = Assertions.assertThrows(NullPointerException.class, () -> {
           TodoItemTask itemTask = getExample();
           itemTask.setTodoItem();
 
            assertEquals("todoItem can not be null!",thrown.getMessage());
 
-      }
+      });
 
     @Override
+
     public void  hashCodeAndEquals() {
            TodoItemTask item1 = getExample();
            item1.setAssignee(new Person(2,"RandomFirstName","RandomLastName","lexicon@exampl.com"));
@@ -48,6 +49,9 @@ public class TodoItemTaskTest {
 
     }
 }
+
+
+    }
 
 
 
